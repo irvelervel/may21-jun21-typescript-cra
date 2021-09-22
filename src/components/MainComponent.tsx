@@ -12,6 +12,7 @@ interface MainComponentProps {
 
 interface MainComponentState {
   name: string
+  // books: Book[]
 }
 
 // Array<string>

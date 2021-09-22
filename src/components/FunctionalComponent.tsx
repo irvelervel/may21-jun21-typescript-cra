@@ -13,6 +13,10 @@ interface Book {
   id: number
 }
 
+interface ManyStrings {
+  [ingrid: string]: string
+}
+
 const FunctionalComponent = ({ title, subTitle }: FunctionalComponentProps) => {
   const [data, setData] = useState<Book[]>([])
 
@@ -33,7 +37,10 @@ const FunctionalComponent = ({ title, subTitle }: FunctionalComponentProps) => {
       <h4>{subTitle}</h4>
       <ul>
         {data.map((book) => (
-          <li>{book.title}</li>
+          <>
+            <li>{book.title}</li>
+            <li>{book.description}</li>
+          </>
         ))}
       </ul>
       {/* <h6 onClick={() => setName('Stefano')}>{name}</h6> */}
