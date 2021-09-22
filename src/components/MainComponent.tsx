@@ -7,19 +7,28 @@ import { Component } from 'react'
 interface MainComponentProps {
   title: string
   subTitle?: string // optional prop, the component may/may not receive it
+  count: number
+}
+
+interface MainComponentState {
+  name: string
 }
 
 // Array<string>
 // string[]
-//
 
-class MainComponent extends Component<MainComponentProps> {
+class MainComponent extends Component<MainComponentProps, MainComponentState> {
+  state: MainComponentState = {
+    name: 'Stefano',
+  }
+
   render() {
     return (
       <div>
         <h2>I'm The Main Typescript Component!</h2>
         <h4>{this.props.title}</h4>
         <h5>{this.props.subTitle || 'No subTitle prop received!'}</h5>
+        <button onClick={() => this.setState({ name: 'Rafa' })}>{this.state.name}</button>
       </div>
     )
   }
